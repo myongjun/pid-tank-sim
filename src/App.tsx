@@ -27,11 +27,11 @@ export default function App(){
         <div className="left">
           <Tank h={state.h} hMax={hMax} pumpOn={state.i>0.01} />
           <div className="card">
-            <div className="header"><h1>Estado</h1></div>
+            <div className="header"><h1>状态</h1></div>
             <div className="grid" style={{ gridTemplateColumns:'1fr 1fr 1fr' }}>
-              <div><div className="label">t [s]</div><div>{state.t.toFixed(2)}</div></div>
-              <div><div className="label">h [m]</div><div>{state.h.toFixed(3)}</div></div>
-              <div><div className="label">i [A]</div><div>{state.i.toFixed(3)}</div></div>
+              <div><div className="label">时间 t [s]</div><div>{state.t.toFixed(2)}</div></div>
+              <div><div className="label">水位 h [m]</div><div>{state.h.toFixed(3)}</div></div>
+              <div><div className="label">电流 i [A]</div><div>{state.i.toFixed(3)}</div></div>
             </div>
           </div>
         </div>
@@ -50,11 +50,11 @@ export default function App(){
             onStart={start}
             onStop={stop}
             onReset={()=>{ setIManual(0); setManual(0); reset(0) }}
-            onExport={()=> downloadCSV('sim_tanque.csv', toCSV(data()))}
+            onExport={()=> downloadCSV('水箱仿真数据.csv', toCSV(data()))}
           />
         </div>
       </div>
-      <div className="footer">© {new Date().getFullYear()} – Proyecto base modular. Puedes reutilizar <code>src/core/</code> y <code>src/hooks/</code> para otras plantas.</div>
+      <div className="footer">© {new Date().getFullYear()} – 模块化基础项目。您可以将 <code>src/core/</code> 和 <code>src/hooks/</code> 复用于其他被控对象。</div>
     </div>
   )
 }
